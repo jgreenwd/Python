@@ -23,7 +23,7 @@ def has_duplicates(l):
 
 ## Exercise 10.9 Write a function called remove_duplicates that takes a list and returns a new list with only the unique elements from the original.
 
-def remove_duplicates(l):
+def remove_duplicates1(l):
   l = sorted(l)
 
   index = len(l) - 1
@@ -33,6 +33,9 @@ def remove_duplicates(l):
     index -= 1
 
   return l
+
+def remove_duplicates2(l):
+  return list(set(l))
   
 ## Exercise 10.10 Write a function that reads the file words.txt and builds a list with one element per word. Write two versions of this function, one using the append method and the other using the idiom t = t + [x].
   
