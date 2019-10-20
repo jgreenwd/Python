@@ -1,3 +1,11 @@
+##Exercise 5.2. Write a function called do_n that takes a function object and a number, n, as arguments, and that calls the given function n times.
+
+def do_n(func, n):
+    counter = 0
+    while counter < n:
+        func()
+        counter += 1
+
 ##Exercise 5.3
 #1. Write a function named check_fermat that takes four parameters - a,b,c, and n - and that checks that Fermat's theorem holds. If n is greater than 2 and it turns out to be true that a^n + b^n == c^n the program should print, “Holy smokes, Fermat was wrong!” Otherwise the program should print, “No, that doesn’t work.”
 
