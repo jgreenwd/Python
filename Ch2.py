@@ -1,4 +1,7 @@
-#NOTE: I am using Python 3, so integer division produces floats
+##Exercise 2.1. Type the following statements in the Python interpreter to see what they do:
+## 5          prints 5
+## x=5        assigns 5 to x
+## x+1        adds 1 to x, prints x (6)
 
 ##Exercise 2.2. Assume that we execute the following assignment statements:
 width = 17
