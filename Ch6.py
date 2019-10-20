@@ -1,3 +1,25 @@
+##Exercise 6.1. Write a compare function that returns 1 if x > y, 0 if x == y, and -1 if x < y.
+
+def compare(x,y=0):
+  if x != y:
+    if x > y:
+      return 1
+    else:
+      return -1
+  else:
+    return 0
+      
+##Exercise 6.2. Use incremental development to write a function called hypotenuse that returns the length of the hypotenuse of a right triangle given the lengths of the two legs as arguments. Record each stage of the development process as you go.
+
+def hypotenuse(s1, s2):
+  import math
+  return math.sqrt(s1**2 + s2**2)
+
+##Exercise 6.3. Write a function is_between(x, y, z) that returns True if x ≤ y ≤ z or False otherwise.
+  
+def is_between(x,y,z):
+    return x <= y <= z
+  
 ##Exercise 6.5
 # Write a function named ack that evaluates Ackermann’s function. Use your function to evaluate ack(3, 4), which should be 125. 
 
