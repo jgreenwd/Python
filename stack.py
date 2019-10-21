@@ -1,3 +1,5 @@
+## building a Stack for practice
+
 class Stack:
     def __init__(self):
         self.size = 0
