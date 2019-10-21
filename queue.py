@@ -48,13 +48,15 @@ class Queue:
         return self.head.val
 
     def print(self):
+        output = []
         node = self.head
         i = 0
         while i < self.size:
-            print(node.val, i)
+            output.append(node.val)
             node = node.next_node
             i += 1
-
+        return output
+    
 class Node:
     def __init__(self, val):
         self.val = val
