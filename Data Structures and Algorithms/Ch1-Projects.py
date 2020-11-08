@@ -74,9 +74,6 @@ def p1_32():
                 print(f'>{terms[0]}')
 
 
-# P-1.33
-
-
 # P-1.34
 def p1_34():
     from random import randint
@@ -95,4 +92,20 @@ def p1_34():
             print(f'{i+1:3} {tmp}')
         else:
             print(f'{i+1:3} {output}')
-    
+
+
+# P-1.35
+def p1_35():
+    from random import randint
+    from numpy import unique
+
+    for n in range(5,101,5):
+        # n choose 2
+        comparisons = n * (n-1) / 2
+
+        # assign n- random days in the year as birthdays
+        bdays = [randint(0, 366) for x in range(n)]
+
+        # if duplicates exist
+        if len(unique(bdays)) < len(bdays):
+            print(f'{n:3} - \tcomparisons: {int(comparisons):4}\tprobability: {comparisons / 366:1.3f}')
