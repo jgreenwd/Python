@@ -118,12 +118,19 @@ if __name__ == '__main__':
         print( )
 
 
-# R-2.9, 2.10, 2.12, 2.13
+# R-2.9, 2.10, 2.12, 2.13, 2.14, 2.15
 class Vector:
     """ Represent a vector in a multidimensional space. """
     def __init__ (self, d):
         """ Create d-dimensional vector of zeros."""
-        self._coords = [0] * d
+        from collections.abc import Sequence
+
+        if isinstance(d, int):
+            self._coords = [0] * d
+        elif issubclass(type(d), Sequence):
+            self._coords = list(d)
+        else:
+            raise TypeError(f"Invalid argument: {d}. d must be of type int or a sequence")
 
     def __len__ (self):
         """Return the dimension of the vector. """
@@ -156,12 +163,22 @@ class Vector:
         return result
 
     def __mul__(self, val):
-        """ Return product of a Vector and a scalar. """
-        from copy import deepcopy
-        result = deepcopy(self)
-        for i in range(len(result)):
-            result[i] = result[i] * val
-        return result
+        """ Return product of a Vector and a scalar or another Vector. """
+        if not isinstance(val, (int, Vector)):
+            raise TypeError(f"Invalid operand used: {val}")
+        else:
+            if isinstance(val, int):
+                result = Vector(len(self))
+                for i in range(len(self)):
+                    result[i] = self[i] * val
+            else:
+                if len(self) != len(val):
+                    raise ValueError('dimensions must agree')
+                result = []
+                for i in range(len(self)):
+                    result.append(self[i] * val[i])
+                result = sum(result)
+            return result
 
     def __rmul__(self, val):
         """ Return product of a Vector and a scalar. """
@@ -185,10 +202,3 @@ class Vector:
     def __str__ (self):
         """ Produce string representation of vector. """
         return '<' + str(self._coords)[1:-1] + '>'            # adapt list representation
-
-if __name__ == '__main__':
-    vec = Vector(5)
-    for i in range(5):
-        vec[i] = i
-    
-    print(2 * vec)
