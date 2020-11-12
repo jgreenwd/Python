@@ -91,7 +91,7 @@ class CreditCard:
 
 
 # R-2.8
-After modification - range(1, 58) - wallet #3 will go over its limit first (4959/5000)
+#After modification - range(1, 58) - wallet #3 will go over its limit first (4959/5000)
 if __name__ == '__main__':
     wallet = [ ]
     wallet.append(CreditCard('John Bowman', 'California Savings',
