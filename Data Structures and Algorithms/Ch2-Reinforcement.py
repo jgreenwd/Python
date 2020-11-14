@@ -202,3 +202,26 @@ class Vector:
     def __str__ (self):
         """ Produce string representation of vector. """
         return '<' + str(self._coords)[1:-1] + '>'            # adapt list representation
+    
+# R-2.22
+    def __eq__(self, arr):
+        """ Return True if all elements of self are equal to all elements of arr """
+        if len(self) != len(arr):
+            return False
+        else:
+            for i in range(len(self)):
+                if self[i] != arr[i]:
+                    return False
+        return True
+    
+# R-2.23
+    def __lt__(self, arr):
+        """ Return True if self less than arr """
+        for i in range(min(len(self), len(arr)):    # compare each value in range of shortest length
+            if arr[i] > self[i]:
+                return True
+
+        if len(arr) > len(self): 
+            return True
+
+        return False
